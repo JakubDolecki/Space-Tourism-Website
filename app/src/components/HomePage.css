@@ -1,0 +1,17 @@
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+}
+
+html { 
+    background-image: url("src/assets/background-home-desktop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+  }
+  
