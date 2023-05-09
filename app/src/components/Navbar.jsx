@@ -29,7 +29,7 @@ export const Line = styled.div`
 export const Navigation = styled.div`
   height: 100%;
   width: 800px;
-  background-color: white;
+  background-color: black;
   position: absolute;
   
 `;
