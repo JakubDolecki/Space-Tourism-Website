@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export const Container = styled.div`
   width: 100%;
@@ -78,7 +80,7 @@ export const Text = styled.span`
   font-size: 16px;
 `;
 
-export const Links = styled.div`
+export const Links = styled(NavLink)`
   height: 100%;
   width: 650px;
   /* background-color: white; */
@@ -88,6 +90,26 @@ export const Links = styled.div`
 `;
 
 export function Navbar() {
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
+
+  const boxStyle = {
+    borderBottom: isHover? '5px solid rgb(135, 135, 135)' : '0px solid rgb(135, 135, 135)',
+    
+    // backgroundColor: isHover ? "lightblue" : "rgb(0, 191, 255)",
+    height: "95%",
+    width: "130px",
+    /* background-color: white; */
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
   const navigate = useNavigate();
   const navigateToHome = () => {
     navigate("/");
@@ -104,14 +126,16 @@ export function Navbar() {
           <Line></Line>
           <Navigation>
             <Links>
-              <Link
-                onClick={navigateToHome}
-                style={{}}
+              <NavLink
+                style={boxStyle}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <Number>00</Number>
                 <Text>HOME</Text>
-              </Link>
-              <Link onClick={navigateToDestination}>
+              </NavLink>
+
+              <Link to="/Destination">
                 <Number>01</Number>
                 <Text>DESTINATION</Text>
               </Link>
