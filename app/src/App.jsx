@@ -21,7 +21,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Destination" element={<DestinationPage />}/>
+          <Route path="/Destination/:page" element={<DestinationPage />}/>
         </Routes>
       </Wrapper>
     </HashRouter>

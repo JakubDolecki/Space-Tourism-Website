@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
@@ -94,6 +95,7 @@ export function Navbar() {
   const navigateToDestination = () => {
     navigate("/Destination");
   };
+
   return (
     <>
       <Container>
@@ -104,12 +106,7 @@ export function Navbar() {
             <Links>
               <Link
                 onClick={navigateToHome}
-                style={({ isActive, isPending }) => {
-                  return {
-                    backgroundColor: isActive ? "white" : "yellow",
-                    
-                  };
-                }}
+                style={{}}
               >
                 <Number>00</Number>
                 <Text>HOME</Text>
