@@ -1,25 +1,29 @@
 import styled, { createGlobalStyle } from "styled-components";
-import "./HomePage.css";
-import { Container, Navbar } from "./Navbar";
-import "./DestinationPage.css";
 
-export const BackGround = styled.div`
-  /* The image used */
+export const Global = createGlobalStyle`
+body {
+  margin: 0px;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
   background-image: url("src/assets/background-home-desktop.jpg");
-
-  /* Full height */
-  height: 100vh;
-  
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  overflow: hidden;
+}
 `;
+
 
 export function HomePage() {
   return (
-    <BackGround>
+    <>
+      <Global />
       <span>heca</span>
-    </BackGround>
+    </>
   );
 }

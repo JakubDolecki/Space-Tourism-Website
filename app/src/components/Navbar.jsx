@@ -1,20 +1,15 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import "./Navbar.css";
 
 export const Container = styled.div`
   width: 100%;
   height: 100px;
-  /* background-color: black; */
   display: flex;
   margin-top: 30px;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: black;
 `;
 
 export const Logo = styled.img`
@@ -96,14 +91,6 @@ export const Link = styled(NavLink)`
 `;
 
 export function Navbar() {
-  const navigate = useNavigate();
-  const navigateToHome = () => {
-    navigate("/");
-  };
-  const navigateToDestination = () => {
-    navigate("/Destination");
-  };
-
   return (
     <>
       <Container>
