@@ -7,6 +7,8 @@ import { HomePage } from "./components/HomePage";
 import { Navbar } from "./components/Navbar";
 import styled from "styled-components";
 import { DestinationPage } from "./components/DestinationPage";
+import { CrewPage } from "./components/CrewPage";
+import { TechnologyPage } from "./components/TechnologyPage";
 
 export const Wrapper = styled.div`
   body {
@@ -21,7 +23,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Destination" element={<DestinationPage />}/>
+          <Route path="/Destination" element={<DestinationPage />} />
+          <Route path="/Crew" element={<CrewPage />} />
+          <Route path="/Technology" element={<TechnologyPage />} />
         </Routes>
       </Wrapper>
     </HashRouter>

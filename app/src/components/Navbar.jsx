@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import "./Navbar.css";
 
 export const Container = styled.div`
   width: 100%;
@@ -13,6 +14,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  background-color: black;
 `;
 
 export const Logo = styled.img`
@@ -23,7 +25,7 @@ export const Logo = styled.img`
 `;
 export const Line = styled.div`
   height: 1px;
-  width: 500px;
+  width: 70%;
   background-color: white;
   opacity: 20%;
   margin-left: 50px;
@@ -38,31 +40,17 @@ export const Navigation = styled.div`
   backdrop-filter: blur(40.7742px);
   position: absolute;
   display: flex;
+  align-items: center;
 `;
 
 export const NavContainer = styled.div`
   display: flex;
-  width: 1400px;
+  width: 90%;
   height: 100px;
   align-items: center;
   position: relative;
   justify-content: flex-end;
   overflow: hidden;
-`;
-
-export const Link = styled.div`
-  height: 95%;
-  width: 130px;
-  /* background-color: white; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 4;
-  &:hover {
-    border-bottom: 5px solid rgb(135, 135, 135);
-    cursor: pointer;
-  }
 `;
 
 export const Number = styled.span`
@@ -80,7 +68,7 @@ export const Text = styled.span`
   font-size: 16px;
 `;
 
-export const Links = styled(NavLink)`
+export const Links = styled.div`
   height: 100%;
   width: 650px;
   /* background-color: white; */
@@ -89,27 +77,25 @@ export const Links = styled(NavLink)`
   justify-content: space-around;
 `;
 
+export const Link = styled(NavLink)`
+  height: 95%;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  z-index: 4;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 5px solid rgb(135, 135, 135);
+    cursor: pointer;
+  }
+`;
+
 export function Navbar() {
-  const [isHover, setIsHover] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHover(true);
-  };
-  const handleMouseLeave = () => {
-    setIsHover(false);
-  };
-
-  const boxStyle = {
-    borderBottom: isHover? '5px solid rgb(135, 135, 135)' : '0px solid rgb(135, 135, 135)',
-    
-    // backgroundColor: isHover ? "lightblue" : "rgb(0, 191, 255)",
-    height: "95%",
-    width: "130px",
-    /* background-color: white; */
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  };
   const navigate = useNavigate();
   const navigateToHome = () => {
     navigate("/");
@@ -126,24 +112,40 @@ export function Navbar() {
           <Line></Line>
           <Navigation>
             <Links>
-              <NavLink
-                style={boxStyle}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+              <Link
+                to="/"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
               >
                 <Number>00</Number>
                 <Text>HOME</Text>
-              </NavLink>
+              </Link>
 
-              <Link to="/Destination">
+              <Link
+                to="/Destination"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
                 <Number>01</Number>
                 <Text>DESTINATION</Text>
               </Link>
-              <Link>
+              <Link
+                to="/Crew"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
                 <Number>02</Number>
                 <Text>CREW</Text>
               </Link>
-              <Link>
+              <Link
+                to="/Technology"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
                 <Number>03</Number>
                 <Text>TECHNOLOGY</Text>
               </Link>
