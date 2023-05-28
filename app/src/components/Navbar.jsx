@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100px;
+  height: 96px;
   display: flex;
   margin-top: 30px;
   align-items: center;
@@ -25,12 +25,12 @@ export const Line = styled.div`
   opacity: 20%;
   margin-left: 50px;
   position: absolute;
-  right: 850px;
+  right: 800px;
   z-index: 2;
 `;
 export const Navigation = styled.div`
   height: 100%;
-  width: 900px;
+  width: 830px;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(40.7742px);
   position: absolute;
