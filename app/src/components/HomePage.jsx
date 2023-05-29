@@ -23,12 +23,13 @@ export const Container = styled.div`
   width: 100vw;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
 `;
 export const TxtContainer = styled.div`
   height: 382px;
   width: 450px;
-  margin-bottom: 250px;
-  margin-left: 150px;
+  margin-bottom: 251px;
+  margin-left: 165px;
   display: flex;
   flex-direction: column;
 `;
@@ -59,6 +60,30 @@ export const TxtBot = styled.span`
   line-height: 32px;
   color: #d0d6f9;
 `;
+export const Button = styled.div`
+  height: 274px;
+  width: 274px;
+  background-color: white;
+  margin-bottom: 251px;
+  margin-right: 165px;
+  border-radius: 50%;
+  display: flex;
+  font-family: "Bellefair";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  letter-spacing: 2px;
+  color: #0b0d17;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 24px -100px rgba(255, 255, 255, 0.1);
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 0px 0px 0px 60px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+`;
 
 export function HomePage() {
   return (
@@ -75,6 +100,9 @@ export function HomePage() {
             world experience!
           </TxtBot>
         </TxtContainer>
+        <Button>
+          <span>EXPLORE</span>
+        </Button>
       </Container>
     </>
   );
