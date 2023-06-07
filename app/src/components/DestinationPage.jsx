@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import data from "./data.json";
 
 export const Global = createGlobalStyle`
 body {
@@ -19,6 +20,7 @@ html {
 `;
 
 export function DestinationPage() {
+  console.log(data.destinations);
   return (
     <>
       <Global />
