@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import data from "./data.json";
+import styled from "styled-components";
 
 export const Global = createGlobalStyle`
 body {
@@ -19,11 +20,42 @@ html {
 }
 `;
 
+export const Targets = styled.span`
+  color: white;
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.7px;
+  margin-left: 36px;
+  color: #d0d6f9;
+`;
+
+export const TargetsContainer = styled.div`
+  margin-left: 850px;
+  margin-top: 174px;
+`
+
+export const DestinationContainer = styled.div`
+  
+`
+
 export function DestinationPage() {
-  console.log(data.destinations);
+  console.log();
   return (
     <>
       <Global />
+      <TargetsContainer>
+        {data.destinations.map((target) => (
+          <Targets key={target.name}>{target.name}</Targets>
+        ))}
+      </TargetsContainer>
+      <DestinationContainer>
+      {data.destinations.map((target) => (
+          <span key={target.name}>{target.description}</span>
+        ))}
+      </DestinationContainer>
     </>
   );
 }

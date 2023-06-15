@@ -22,8 +22,8 @@ function App() {
       <Wrapper>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/Destination" element={<DestinationPage />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/Destination/:target" element={<DestinationPage />} />
           <Route path="/Crew" element={<CrewPage />} />
           <Route path="/Technology" element={<TechnologyPage />} />
         </Routes>
