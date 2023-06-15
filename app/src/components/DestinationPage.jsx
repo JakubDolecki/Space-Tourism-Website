@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import data from "./data.json";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Global = createGlobalStyle`
 body {
@@ -20,7 +22,7 @@ html {
 }
 `;
 
-export const Targets = styled.span`
+export const Targets = styled(Link)`
   color: white;
   font-family: "Barlow Condensed";
   font-style: normal;
@@ -42,17 +44,18 @@ export const DestinationContainer = styled.div`
 `
 
 export function DestinationPage() {
-  console.log();
+  const { target } = useParams()
+  console.log(target)
   return (
     <>
       <Global />
       <TargetsContainer>
         {data.destinations.map((target) => (
-          <Targets key={target.name}>{target.name}</Targets>
+          <Targets key={target.name} to={`/Destination/${target.name}`}>{target.name}</Targets>
         ))}
       </TargetsContainer>
       <DestinationContainer>
-      {data.destinations.map((target) => (
+      {data.destinations.filter((dst) => (dst.name === target)).map((target) => (
           <span key={target.name}>{target.description}</span>
         ))}
       </DestinationContainer>

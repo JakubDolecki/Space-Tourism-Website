@@ -23,7 +23,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/Destination/:target" element={<DestinationPage />} />
+          <Route path="/Destination/" element={<DestinationPage />} >
+            <Route path=":target"></Route>
+          </Route>
           <Route path="/Crew" element={<CrewPage />} />
           <Route path="/Technology" element={<TechnologyPage />} />
         </Routes>
