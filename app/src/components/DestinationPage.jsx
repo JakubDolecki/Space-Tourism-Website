@@ -36,29 +36,78 @@ export const Targets = styled(Link)`
 
 export const TargetsContainer = styled.div`
   margin-left: 850px;
-  margin-top: 174px;
-`
+  margin-top: 98px;
+`;
 
-export const DestinationContainer = styled.div`
-  
-`
+export const DestinationContainer = styled.div``;
+
+export const Description = styled.span``;
+
+export const Instructions = styled.div`
+margin-top: 76px;
+margin-left: 145px;
+`;
+
+export const Name = styled.span``;
+
+export const Distance = styled.span``;
+
+export const Travel = styled.span``;
+
+export const Photo = styled.img``;
+
+export const Number = styled.span`
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 4.725px;
+  color: #ffffff;
+  mix-blend-mode: normal;
+  opacity: 0.25;
+  margin-right: 28px;
+`;
+
+export const Instruction = styled.span`
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 4.725px;
+  text-transform: uppercase;
+  color: #ffffff;
+`;
 
 export function DestinationPage() {
-  const { target } = useParams()
-  console.log(target)
+  const { target } = useParams();
+  console.log(data.destinations);
   return (
     <>
       <Global />
+      <Instructions>
+        <Number>01</Number>
+        <Instruction>PICK YOUR DESTINATION</Instruction>
+      </Instructions>
       <TargetsContainer>
         {data.destinations.map((target) => (
-          <Targets key={target.name} to={`/Destination/${target.name}`}>{target.name}</Targets>
+          <Targets key={target.name} to={`/Destination/${target.name}`}>
+            {target.name}
+          </Targets>
         ))}
       </TargetsContainer>
-      <DestinationContainer>
-      {data.destinations.filter((dst) => (dst.name === target)).map((target) => (
-          <span key={target.name}>{target.description}</span>
+      {data.destinations
+        .filter((dst) => dst.name === target)
+        .map((target) => (
+          <div key={target.name}>
+            <Name>{target.name}</Name>
+            <Description key={target.name}>{target.description}</Description>
+            <Photo src={target.images.png}></Photo>
+            <Distance>{target.distance}</Distance>
+            <Travel>{target.travel}</Travel>
+          </div>
         ))}
-      </DestinationContainer>
     </>
   );
 }
