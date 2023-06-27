@@ -1,4 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import data from "./data.json";
+import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Global = createGlobalStyle`
 body {
@@ -18,10 +22,123 @@ html {
 }
 `;
 
+export const Dots = styled(Link)`
+  height: 15px;
+  width: 15px;
+  background-color: white;
+  margin-left: 24px;
+  border-radius: 15px;
+  opacity: 0.174362912774086;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+`;
+
+export const Role = styled.span`
+  color: #fff;
+  font-size: 32px;
+  font-family: Bellefair;
+  text-transform: uppercase;
+  opacity: 0.5042492151260376;
+`;
+
+export const Bio = styled.div`
+  color: #d0d6f9;
+  font-size: 18px;
+  font-family: Barlow;
+  line-height: 32px;
+  width: 444px;
+  margin-top: 27px;
+`;
+
+export const Name = styled.span`
+  color: #fff;
+  font-size: 56px;
+  font-family: Bellefair;
+  text-transform: uppercase;
+  margin-top: 15px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 126px;
+`;
+
+export const Number = styled.span`
+  color: #fff;
+  font-size: 28px;
+  font-family: Barlow Condensed;
+  font-weight: 700;
+  letter-spacing: 4.725px;
+  opacity: 0.25;
+  margin-right: 24px;
+`;
+
+export const Txt = styled.span`
+  color: #fff;
+  font-size: 28px;
+  font-family: Barlow Condensed;
+  letter-spacing: 4.725px;
+  text-transform: uppercase;
+`;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Header = styled.div`
+margin-left: 140px;
+`;
+
+export const Photo = styled.img`
+margin-right: 145px;
+`;
+
+export const Navigation = styled.div`
+  display: flex;
+  
+`;
+
+export const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+`;
+
 export function CrewPage() {
+  const { member } = useParams();
+
   return (
-    <>
+    <Main>
       <Global />
-    </>
+
+      <Header>
+        <Number>02</Number>
+        <Txt>MEET YOUR CREW</Txt>
+      </Header>
+
+      {data.crew
+        .filter((person) => person.name === member)
+        .map((person) => (
+          <Container key={person.name}>
+            <Description>
+              <Role>{person.role}</Role>
+              <Name>{person.name}</Name>
+              <Bio>{person.bio}</Bio>
+              <Navigation>
+                {data.crew.map((member) => (
+                  <Dots key={member.name} to={`/Crew/${member.name}`} />
+                ))}
+              </Navigation>
+            </Description>
+            <Photo src={person.images.png}></Photo>
+          </Container>
+        ))}
+    </Main>
   );
 }

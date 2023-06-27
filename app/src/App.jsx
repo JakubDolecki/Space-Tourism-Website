@@ -23,10 +23,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/Destination/" element={<DestinationPage />} >
+          <Route path="/Destination/" element={<DestinationPage />}>
             <Route path=":target"></Route>
           </Route>
-          <Route path="/Crew" element={<CrewPage />} />
+          <Route path="/Crew" element={<CrewPage />}>
+          <Route path=":member"></Route>
+          </Route>
           <Route path="/Technology" element={<TechnologyPage />} />
         </Routes>
       </Wrapper>
