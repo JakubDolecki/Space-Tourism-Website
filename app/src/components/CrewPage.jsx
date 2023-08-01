@@ -63,6 +63,7 @@ export const Name = styled.span`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   margin-bottom: 126px;
 `;
 
@@ -87,19 +88,26 @@ export const Txt = styled.span`
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 140px;
+  margin-bottom: 229px;
 `;
 
 export const Header = styled.div`
-margin-left: 140px;
+  margin-left: 140px;
+  position: absolute;
+  top: 220px;
 `;
 
 export const Photo = styled.img`
-margin-right: 145px;
+  margin-right: 137px;
 `;
 
 export const Navigation = styled.div`
   display: flex;
-  
+  z-index: 1;
+  position: absolute;
+  bottom: 94px;
+  margin-left: 115px;
 `;
 
 export const Main = styled.div`
@@ -130,15 +138,15 @@ export function CrewPage() {
               <Role>{person.role}</Role>
               <Name>{person.name}</Name>
               <Bio>{person.bio}</Bio>
-              <Navigation>
-                {data.crew.map((member) => (
-                  <Dots key={member.name} to={`/Crew/${member.name}`} />
-                ))}
-              </Navigation>
             </Description>
             <Photo src={person.images.png}></Photo>
           </Container>
         ))}
+      <Navigation>
+        {data.crew.map((member) => (
+          <Dots key={member.name} to={`/Crew/${member.name}`} />
+        ))}
+      </Navigation>
     </Main>
   );
 }
