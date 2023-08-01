@@ -121,16 +121,22 @@ export const Main = styled.div`
 export function CrewPage() {
   const { member } = useParams();
 
-  return (
-    <Main>
-      <Global />
-
-      <Header>
-        <Number>02</Number>
-        <Txt>MEET YOUR CREW</Txt>
-      </Header>
-
-      {data.crew
+  function Render() {
+    if (member === undefined) {
+      return data.crew
+        .filter((person) => person.name === "Douglas Hurley")
+        .map((person) => (
+          <Container key={person.name}>
+            <Description>
+              <Role>{person.role}</Role>
+              <Name>{person.name}</Name>
+              <Bio>{person.bio}</Bio>
+            </Description>
+            <Photo src={person.images.png}></Photo>
+          </Container>
+        ));
+    } else {
+      return data.crew
         .filter((person) => person.name === member)
         .map((person) => (
           <Container key={person.name}>
@@ -141,7 +147,20 @@ export function CrewPage() {
             </Description>
             <Photo src={person.images.png}></Photo>
           </Container>
-        ))}
+        ));
+    }
+  }
+
+  return (
+    <Main>
+      <Global />
+
+      <Header>
+        <Number>02</Number>
+        <Txt>MEET YOUR CREW</Txt>
+      </Header>
+
+      <Render/>
       <Navigation>
         {data.crew.map((member) => (
           <Dots key={member.name} to={`/Crew/${member.name}`} />
