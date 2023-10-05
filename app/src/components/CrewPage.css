@@ -1,0 +1,17 @@
+.nav-link {
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    margin-left: 24px;
+    border-radius: 15px;
+    opacity: 0.174362912774086;
+    cursor: pointer;
+  }
+  
+  .active-style {
+    opacity: 1;
+  }
+
+  .nav-link:hover {
+    opacity: 1;
+  }

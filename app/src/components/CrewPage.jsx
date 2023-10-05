@@ -2,7 +2,9 @@ import { createGlobalStyle } from "styled-components";
 import data from "./data.json";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import "./CrewPage.css"
 
 export const Global = createGlobalStyle`
 body {
@@ -22,18 +24,18 @@ html {
 }
 `;
 
-export const Dots = styled(Link)`
-  height: 15px;
-  width: 15px;
-  background-color: white;
-  margin-left: 24px;
-  border-radius: 15px;
-  opacity: 0.174362912774086;
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
+// export const Dots = styled(Link)`
+//   height: 15px;
+//   width: 15px;
+//   background-color: white;
+//   margin-left: 24px;
+//   border-radius: 15px;
+//   opacity: 0.174362912774086;
+//   &:hover {
+//     opacity: 1;
+//     cursor: pointer;
+//   }
+// `;
 
 export const Role = styled.span`
   color: #fff;
@@ -121,6 +123,24 @@ export const Main = styled.div`
 export function CrewPage() {
   const { member } = useParams();
 
+  const [hover, setHover] = useState(false);
+
+  const [myStyle, setMyStyle] = useState({});
+
+ 
+
+  // const styles = {
+  //   dots: {
+  //     height: "15px",
+  //     width: "15px",
+  //     backgroundColor: "white",
+  //     marginLeft: "24px",
+  //     borderRadius: "15px",
+  //     opacity: myStyle[`${info}`] ? "0.174362912774086" : "1",
+  //     cursor: "pointer",
+  //   },
+  // };
+
   function Render() {
     if (member === undefined) {
       return data.crew
@@ -160,10 +180,17 @@ export function CrewPage() {
         <Txt>MEET YOUR CREW</Txt>
       </Header>
 
-      <Render/>
+      <Render />
       <Navigation>
         {data.crew.map((member) => (
-          <Dots key={member.name} to={`/Crew/${member.name}`} />
+          <NavLink
+            key={member.name}
+            to={`/Crew/${member.name}`}
+            onClick={() => {
+              
+            }}
+            className={navData => (navData.isActive ? "active-style nav-link" : "nav-link")}
+          />
         ))}
       </Navigation>
     </Main>
