@@ -110,10 +110,6 @@ export const Main = styled.div`
 export function CrewPage() {
   const { member } = useParams();
 
-  const [hover, setHover] = useState(false);
-
-  const [myStyle, setMyStyle] = useState({});
-
   function Render() {
     if (member === undefined) {
       return data.crew
