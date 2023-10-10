@@ -24,19 +24,6 @@ html {
 }
 `;
 
-// export const Dots = styled(Link)`
-//   height: 15px;
-//   width: 15px;
-//   background-color: white;
-//   margin-left: 24px;
-//   border-radius: 15px;
-//   opacity: 0.174362912774086;
-//   &:hover {
-//     opacity: 1;
-//     cursor: pointer;
-//   }
-// `;
-
 export const Role = styled.span`
   color: #fff;
   font-size: 32px;
@@ -126,20 +113,6 @@ export function CrewPage() {
   const [hover, setHover] = useState(false);
 
   const [myStyle, setMyStyle] = useState({});
-
- 
-
-  // const styles = {
-  //   dots: {
-  //     height: "15px",
-  //     width: "15px",
-  //     backgroundColor: "white",
-  //     marginLeft: "24px",
-  //     borderRadius: "15px",
-  //     opacity: myStyle[`${info}`] ? "0.174362912774086" : "1",
-  //     cursor: "pointer",
-  //   },
-  // };
 
   function Render() {
     if (member === undefined) {

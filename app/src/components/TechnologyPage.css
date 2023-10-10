@@ -1,0 +1,33 @@
+.navlink {
+  height: 80px;
+  width: 80px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  font-family: Bellefair;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.activestyle {
+  color: #0b0d17;
+  background-color: #fff;
+  border-color: white;
+}
+
+.navlink:hover {
+  color: #0b0d17;
+  background-color: #fff;
+  border-color: white;
+}

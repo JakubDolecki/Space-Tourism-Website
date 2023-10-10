@@ -27,9 +27,11 @@ function App() {
             <Route path=":target"></Route>
           </Route>
           <Route path="/Crew" element={<CrewPage />}>
-          <Route path=":member"></Route>
+            <Route path=":member"></Route>
           </Route>
-          <Route path="/Technology" element={<TechnologyPage />} />
+          <Route path="/Technology" element={<TechnologyPage />}>
+            <Route path=":tech"></Route>
+          </Route>
         </Routes>
       </Wrapper>
     </HashRouter>
