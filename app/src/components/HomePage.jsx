@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Global = createGlobalStyle`
 body {
@@ -60,7 +61,7 @@ export const TxtBot = styled.span`
   line-height: 32px;
   color: #d0d6f9;
 `;
-export const Button = styled.div`
+export const Button = styled(Link)`
   height: 274px;
   width: 274px;
   background-color: white;
@@ -79,6 +80,7 @@ export const Button = styled.div`
   align-items: center;
   box-shadow: 0px 8px 24px -100px rgba(255, 255, 255, 0.1);
   transition: 0.5s;
+  text-decoration: none;
   &:hover {
     box-shadow: 0px 0px 0px 60px rgba(255, 255, 255, 0.1);
     cursor: pointer;
@@ -100,7 +102,7 @@ export function HomePage() {
             world experience!
           </TxtBot>
         </TxtContainer>
-        <Button>
+        <Button to={`/Destination`}>
           <span>EXPLORE</span>
         </Button>
       </Container>
